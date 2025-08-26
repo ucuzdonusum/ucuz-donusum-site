@@ -1,0 +1,312 @@
+﻿@charset "UTF-8";
+/* =====================================================================
+   BEE THEME v2 – Kurumsal & Profesyonel (Start Bootstrap - Personal)
+   Renk Paleti: Siyah (#0B0B0B), Koyu (#161616), Altın (#E6B800),
+                Kehribar (#D97706), Beyaz (#FFFFFF)
+   Bu dosya, orijinal styles.css üzerini örter (override eder).
+   ===================================================================== */
+
+/* ------------------------------
+   1) Tema Değişkenleri
+   ------------------------------ */
+:root {
+    --bee-black: #0B0B0B;
+    --bee-dark: #161616;
+    --bee-gold: #E6B800;
+    --bee-amber: #D97706;
+    --bee-white: #FFFFFF;
+    --bee-light: #f5f5f5;
+    /* Bootstrap override */
+    --bs-primary: var(--bee-gold);
+    --bs-secondary: var(--bee-amber);
+    --bs-dark: var(--bee-black);
+    --bs-light: var(--bee-light);
+    --bs-link-color: var(--bee-gold);
+    --bs-link-hover-color: #cfa400;
+    --bee-gradient: linear-gradient(135deg, var(--bee-gold), var(--bee-amber));
+}
+
+/* ------------------------------
+   2) Gövde & Tipografi
+   ------------------------------ */
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--bee-dark);
+    color: var(--bee-white);
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--bee-white);
+    letter-spacing: .2px;
+}
+
+p, li {
+    color: #e8e8e8;
+}
+
+.text-gradient {
+    background: var(--bee-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ------------------------------
+   3) Navbar
+   ------------------------------ */
+.navbar {
+    background: var(--bee-black) !important;
+    border-bottom: 1px solid #222;
+}
+
+    .navbar .navbar-brand {
+        color: var(--bee-gold) !important;
+        font-weight: 800;
+        letter-spacing: .3px;
+    }
+
+    .navbar .nav-link {
+        color: #ddd !important;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: var(--bee-amber) !important;
+        }
+
+/* ------------------------------
+   4) Header / Hero
+   ------------------------------ */
+header {
+    background: var(--bee-black);
+}
+
+.badge.bg-gradient-primary-to-secondary {
+    background: var(--bee-gradient) !important;
+    color: #000;
+    font-weight: 700;
+    border: none;
+}
+
+/* === HERO / PROFİL HİZA + UZAMA/SIKIŞMA FİX === */
+/* Row ve kolonları dikeyde ortala */
+@media (min-width: 992px) {
+    header .container {
+        min-height: calc(100vh - 120px);
+        display: flex;
+        align-items: center; /* dikey ortalama */
+    }
+
+    header .row {
+        align-items: center !important;
+    }
+
+    header .col-xxl-5,
+    header .col-xxl-7 {
+        display: flex;
+        align-items: center;
+    }
+
+    header .col-xxl-7 {
+        justify-content: center;
+    }
+    /* görseli yatay merkezle */
+}
+/* Mobilde de yatay merkez */
+@media (max-width: 991.98px) {
+    header .col-xxl-7 .d-flex {
+        justify-content: center !important;
+    }
+}
+
+/* TEMA’dan gelebilecek ölçü/transform dayamalarını sıfırla */
+header .profile,
+header .profile * {
+    box-sizing: border-box;
+    max-height: none !important;
+    transform: none !important;
+}
+
+/* Profil kapsayıcısı */
+.profile {
+    margin: 0 auto; /* yatay merkez */
+    border-radius: 16px;
+    padding: 12px;
+    background: var(--bee-dark);
+    border: 1px solid #333;
+    height: auto !important;
+    width: auto !important;
+    max-width: 520px; /* taşmayı engelle */
+}
+    /* Dekoratif noktalar/pseudo öğeler kapalı */
+    .profile .dots-1,
+    .profile .dots-2,
+    .profile .dots-3,
+    .profile .dots-4,
+    .profile::before,
+    .profile::after {
+        display: none !important;
+        content: none !important;
+    }
+
+/* Görsel – ORAN KORU, UZAMA/SIKIŞMA YOK */
+.profile-img {
+    display: block;
+    width: min(420px, 100%) !important; /* masaüstünde ~420px’e kadar */
+    height: auto !important; /* oranı koru */
+    object-fit: contain !important; /* kırpma yok */
+    aspect-ratio: auto !important; /* muhtemel sabit oranı iptal */
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.6);
+    margin: 0 auto; /* tam merkez */
+}
+
+/* ------------------------------
+   5) Kartlar
+   ------------------------------ */
+.card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #eee;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.4);
+}
+
+    .card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+        color: var(--bee-gold);
+    }
+
+/* Bölümler için koyu arkaplan */
+.bg-light {
+    background-color: #141414 !important;
+}
+
+/* ------------------------------
+   6) Butonlar
+   ------------------------------ */
+.btn-primary {
+    background: var(--bee-gradient);
+    border: none;
+    color: #000;
+    font-weight: 700;
+}
+
+    .btn-primary:hover {
+        filter: brightness(.9);
+        color: #000;
+    }
+
+.btn-outline-dark {
+    color: var(--bee-white);
+    border-color: var(--bee-gold);
+}
+
+    .btn-outline-dark:hover {
+        background: var(--bee-gold);
+        color: #000;
+    }
+
+/* Linkler & ikon linkleri */
+a {
+    color: var(--bee-gold);
+}
+
+    a:hover {
+        color: var(--bee-amber);
+    }
+
+    a.text-gradient, a.text-gradient:hover {
+        color: var(--bee-gold) !important;
+        background: none;
+    }
+
+/* ------------------------------
+   7) Formlar (İletişim)
+   ------------------------------ */
+.form-control {
+    color: #e9e9e9;
+    background: #121212;
+    border: 1px solid #2c2c2c;
+}
+
+    .form-control:focus {
+        color: #fff;
+        background: #121212;
+        border-color: #f1c200;
+        box-shadow: 0 0 0 .2rem rgba(230,184,0,.25);
+    }
+
+.form-floating > label {
+    color: #bfbfbf;
+}
+
+textarea.form-control {
+    min-height: 10rem;
+}
+
+/* ------------------------------
+   8) Footer
+   ------------------------------ */
+footer {
+    background: #111;
+    color: #aaa;
+    border-top: 1px solid #333;
+}
+
+    footer a.small {
+        color: var(--bee-gold);
+    }
+
+        footer a.small:hover {
+            color: var(--bee-amber);
+        }
+
+/* ------------------------------
+   9) Genel Boşluk & Yardımcılar
+   ------------------------------ */
+section.py-5 {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+}
+
+.container .feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--bee-gradient);
+    color: #000;
+}
+
+/* Opsiyonel uyarı/şerit */
+.bee-stripe {
+    background: repeating-linear-gradient(135deg, #000 0 14px, #E6B800 14px 28px);
+    color: #000;
+}
+
+/* ------------------------------
+   10) Responsive İnce Ayar
+   ------------------------------ */
+@media (max-width: 992px) {
+    .navbar .nav-link {
+        padding: .5rem .4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-img {
+        width: min(320px, 100%) !important;
+    }
+
+    .card {
+        border-radius: 12px;
+    }
+}
